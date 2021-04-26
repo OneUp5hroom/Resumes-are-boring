@@ -1,0 +1,79 @@
+<!--{{data | json}}-->
+<h2>
+<hr style='display: inline-block;width: 33%; vertical-align: middle;' />
+<span style='margin: 30px;'>Resume</span>
+<hr style='display: inline-block;width: 33%; vertical-align: middle;' />
+</h2>
+
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="Introduction">
+            Introduction
+        </th>
+    </tr>
+        <div class="card details">
+            <p>{{ resumeItems[1].Text }}</p>
+        </div>
+</table>
+
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="Introduction">
+            Value Statement
+        </th>
+    </tr>
+        <div class="card details">
+            <p>{{ resumeItems[0].Text }}</p>
+        </div>
+</table>
+
+<h3>Work History</h3>
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="roleTitle">
+            Role
+        </th>
+        <th class="company">
+            Company
+        </th>
+        <th class="location">
+            Location
+        </th>
+        <th class="date">
+            Start Date
+        </th>
+        <th class="date">
+            End Date
+        </th>
+        <th class="droptd">
+
+        </th>
+    </tr>
+    <div *ngFor="let job of workHistory; let i = index" >
+        <tr class="card">
+            <td class="roleTitle">
+                {{job.Title}}
+            </td>
+            <td class="company">
+                {{ job.Company }}
+            </td>
+            <td class="location">
+                {{ job.City }}, {{job.State}}
+            </td>
+            <td class="date">
+                {{ job.StartDate | date:'MM/YYYY' }}
+            </td>
+            <td class="date">
+                {{ job.EndDate }}
+            </td>
+            <td class="droptd">
+                <button class="iconButton" (click)="buttonClick($event)">
+                    <img id="{{ i }}" class="drop" src="../../assets/arrow_drop_down_circle_black_24dp.svg" />
+                </button>
+            </td>
+        </tr>
+        <div *ngIf="!isHidden[i]" class="card details">
+            <p>{{job.Description}}</p>
+        </div>
+    </div> 
+</table>
