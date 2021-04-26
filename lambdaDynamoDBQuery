@@ -2,13 +2,25 @@ const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
+    console.log(event);
     const body = event.queryStringParameters;
     const params = {
         TableName : body.databaseTable,
     }
+    console.log('params');
+    console.log(params);
     try {
         const data = await getItems(params);
-        return {body: JSON.stringify(data)}
+        const response = {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Headers" : "Content-Type",
+                "Access-Control-Allow-Origin": "http://alcandev.com",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            },
+            body: JSON.stringify(data),
+        };
+        return response;
     } catch (e) {
         return { error: e }
     }
