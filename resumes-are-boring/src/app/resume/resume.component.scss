@@ -350,9 +350,18 @@
    text-align: center;
    width: 100%;
  }
-
+.anticipated {
+  width: 180px;
+  text-align: center;
+}
 .URL {
-  width: 200px;
+  width: 100px;
+  text-align: right;
+  margin-right: 0;
+  margin-left: auto;
+}
+.urlTitle {
+  text-align: center;
 }
   @media screen and (max-width: 575px) {
     svg#rocket-smoke {
