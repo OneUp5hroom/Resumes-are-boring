@@ -1,1 +1,63 @@
-<p>hobbies works!</p>
+<h2>
+<hr style='display: inline-block;width: 33%; vertical-align: middle;' />
+<span style='margin: 30px;'>Hobbies</span>
+<hr style='display: inline-block;width: 33%; vertical-align: middle;' />
+</h2>
+
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="Introduction">
+            Overview
+        </th>
+    </tr>
+        <div class="card details">
+            <p>
+                Just being honest, I have not really had enough time to flesh this page out. I have thought about showcasing several of my home hobby projects
+                on this page. For now we this page will be brief insights. 
+            </p>
+        </div>
+</table>
+
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="roleTitle">
+            Title
+        </th>
+        <th class="company">
+            State
+        </th>
+        <th class="location">
+            Platform
+        </th>
+        <th class="date">
+            Goal
+        </th>
+        <th class="droptd">
+
+        </th>
+    </tr>
+    <div *ngFor="let item of hobbyItems; let i = index" >
+        <tr class="card">
+            <td class="roleTitle">
+                {{item.Title}}
+            </td>
+            <td class="company">
+                {{ item.Stage }}
+            </td>
+            <td class="location">
+                {{ item.Platform }}
+            </td>
+            <td class="date">
+                {{ item.Goal }}
+            </td>
+            <td class="droptd">
+                <button class="iconButton" (click)="buttonClick($event)">
+                    <img id="{{ i }}" class="drop" src="../../assets/arrow_drop_down_circle_black_24dp.svg" />
+                </button>
+            </td>
+        </tr>
+        <div *ngIf="!isHidden[i]" class="card details">
+            <p>{{item.Notes}}</p>
+        </div>
+    </div> 
+</table>

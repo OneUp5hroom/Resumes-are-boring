@@ -77,3 +77,44 @@
         </div>
     </div> 
 </table>
+<h3>Education History</h3>
+<table class="jobsTable jobs">
+    <tr class="card titlebar" >
+        <th class="roleTitle">
+            Title
+        </th>
+        <th class="company">
+            Institution
+        </th>
+        <th class="location">
+            Status
+        </th>
+        <th class="date">
+            Anticipated or Completed
+        </th>
+        <th class="URL">
+            URL
+        </th>
+    </tr>
+    <div *ngFor="let item of educationHistory; let i = index" >
+        <tr class="card">
+            <td class="roleTitle">
+                {{item.Title}}
+            </td>
+            <td class="company">
+                {{ item.Institution }}
+            </td>
+            <td class="location">
+                {{ item.Status }}
+            </td>
+            <td class="date">
+                {{ item.CompletedYear | date:'YYYY' }}
+            </td>
+            <td class="date">
+                <div *ngIf="urlExists[i]">
+                    <a href="{{ item.URL }}">Link to Website</a>
+                </div>
+            </td>
+        </tr>
+    </div> 
+</table>
